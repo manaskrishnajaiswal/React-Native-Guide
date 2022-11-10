@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, FlatList, Button } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
@@ -38,41 +39,43 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appContainer}>
-      <Button
-        title="Add New Goal"
-        color="#5e0acc"
-        onPress={startAddGoalHandler}
-      />
-      {modalIsVisible && (
-        <GoalInput
-          onAddGoal={addGoalHandler}
-          goalInput={goalInputHandler}
-          goaltext={goaltext}
-          visible={modalIsVisible}
-          endAddGoal={endAddGoalHandler}
+    <>
+      <StatusBar style="light" />
+      <View style={styles.appContainer}>
+        <Button
+          title="Add New Goal"
+          color="#5e0acc"
+          onPress={startAddGoalHandler}
         />
-      )}
-      <Text>List of Goals...</Text>
-      <View style={styles.goalsContainer}>
-        <FlatList
-          data={courseGoals}
-          renderItem={(itemData) => {
-            return (
-              <GoalItem
-                itemData={itemData.item.text}
-                id={itemData.item.id}
-                goalRemove={goalRemoveHandler}
-              />
-            );
-          }}
-          keyExtractor={(item, index) => {
-            return item.id;
-          }}
-          alwaysBounceVertical={false}
-        />
+        {modalIsVisible && (
+          <GoalInput
+            onAddGoal={addGoalHandler}
+            goalInput={goalInputHandler}
+            goaltext={goaltext}
+            visible={modalIsVisible}
+            endAddGoal={endAddGoalHandler}
+          />
+        )}
+        <View style={styles.goalsContainer}>
+          <FlatList
+            data={courseGoals}
+            renderItem={(itemData) => {
+              return (
+                <GoalItem
+                  itemData={itemData.item.text}
+                  id={itemData.item.id}
+                  goalRemove={goalRemoveHandler}
+                />
+              );
+            }}
+            keyExtractor={(item, index) => {
+              return item.id;
+            }}
+            alwaysBounceVertical={false}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
@@ -81,9 +84,11 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: "#1e085a",
   },
 
   goalsContainer: {
+    marginTop: 20,
     flex: 5,
   },
   goalItem: {
