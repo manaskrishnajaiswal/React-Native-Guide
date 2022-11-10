@@ -12,6 +12,10 @@ export default function App() {
     setModalIsVisible(true);
   }
 
+  function endAddGoalHandler() {
+    setModalIsVisible(false);
+  }
+
   function goalInputHandler(enteredText) {
     // console.log(enteredText);
     setGoalText(enteredText);
@@ -23,6 +27,7 @@ export default function App() {
       { text: goaltext, id: Math.random().toString() },
     ]);
     setGoalText("");
+    endAddGoalHandler();
     // console.log(goaltext);
   }
 
@@ -45,6 +50,7 @@ export default function App() {
           goalInput={goalInputHandler}
           goaltext={goaltext}
           visible={modalIsVisible}
+          endAddGoal={endAddGoalHandler}
         />
       )}
       <Text>List of Goals...</Text>
