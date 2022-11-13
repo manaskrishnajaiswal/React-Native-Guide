@@ -19,7 +19,7 @@ import * as SplashScreen from "expo-splash-screen";
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
-  const [guessRounds, setGuessRounds] = useState(0);
+  let [guessRounds, setGuessRounds] = useState(0);
 
   // Load fonts
   const [fontsLoaded] = useFonts({
@@ -52,10 +52,20 @@ export default function App() {
     setUserNumber(null);
     setGuessRounds(0);
   }
+  function counterHandler() {
+    guessRounds += 1;
+    // console.log(guessRounds);
+    setGuessRounds(guessRounds);
+  }
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
   if (userNumber) {
     screen = (
-      <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />
+      <GameScreen
+        userNumber={userNumber}
+        onGameOver={gameOverHandler}
+        counter={counterHandler}
+      />
     );
   }
   if (gameIsOver && userNumber) {
