@@ -7,7 +7,7 @@ import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import Colors from "./constants/colors";
 import GameOverScreen from "./screens/GameOverScreen";
-import AppLoading from "expo-app-loading";
+// import AppLoading from "expo-app-loading";
 import * as SplashScreen from "expo-splash-screen";
 
 // SplashScreen.preventAutoHideAsync()
