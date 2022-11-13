@@ -92,7 +92,7 @@ const GameScreen = ({ userNumber, onGameOver, counter }) => {
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.listContainer}>
         {/* {guessRounds.map((guessRound, index) => (
           <Text key={index}>{guessRound}</Text>
         ))} */}
@@ -126,5 +126,9 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
+  },
+  listContainer: {
+    flex: 1,
+    padding: 16,
   },
 });
