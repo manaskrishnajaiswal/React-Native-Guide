@@ -93,7 +93,11 @@ const GameScreen = ({ userNumber, onGameOver, counter }) => {
         {/* {guessRounds.map((guessRound, index) => (
           <Text key={index}>{guessRound}</Text>
         ))} */}
-        <FlatList></FlatList>
+        <FlatList
+          data={guessRounds}
+          renderItem={(iteData) => <Text>{iteData.item}</Text>}
+          keyExtractor={(item) => item}
+        />
       </View>
     </View>
   );
