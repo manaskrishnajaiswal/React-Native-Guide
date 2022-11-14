@@ -9,6 +9,7 @@ import {
   useWindowDimensions,
   KeyboardAvoidingView,
   ScrollView,
+  Platform,
 } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Colors from "../constants/colors";
