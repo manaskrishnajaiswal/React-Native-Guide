@@ -2,7 +2,9 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { MEALS } from "../data/dummy-data";
 
-const MealsOverviewScreen = () => {
+const MealsOverviewScreen = ({ route }) => {
+  const catID = route.params.categoryID;
+  //   console.log(catID);
   return (
     <View>
       <Text>Meals Overview Screen</Text>
