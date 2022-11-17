@@ -9,7 +9,7 @@ function UserScreen({ route, navigation }) {
       <Text>
         This is the <Text style={styles.highlight}>"User"</Text> screen!
       </Text>
-      <Button title="Open Drawer" onPress={openDrawerHandler} />
+      {/* <Button title="Open Drawer" onPress={openDrawerHandler} /> */}
     </View>
   );
 }
